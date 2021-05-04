@@ -4,7 +4,8 @@ import me.kokeria.jhud.ItemsInit;
 
 public abstract class HUDItem {
 
-    int x, y;
+    public int x, y;
+    private HUDItemGroup group = null;
 
     public HUDItem(int x, int y) {
         this.x = x;
@@ -25,6 +26,15 @@ public abstract class HUDItem {
 
     public boolean checkBoundingBox(int targX, int targY) {
         return targX >= x && targX <= x + getWidth() && targY >= y && targY <= targY + getHeight();
+    }
+
+    public void changeGroup(HUDItemGroup newGroup) {
+        if (newGroup == group) return;
+
+        if (group != null) group.removeItem(this);
+        group = newGroup;
+        if (newGroup != null) newGroup.items.add(this);
+
     }
 
 }

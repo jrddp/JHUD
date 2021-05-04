@@ -4,7 +4,6 @@ import me.kokeria.jhud.items.HUDItem;
 import me.kokeria.jhud.items.HUDItemGroup;
 import me.kokeria.jhud.items.HorizontalHUDItemGroup;
 import me.kokeria.jhud.items.ItemCount;
-import net.minecraft.client.Minecraft;
 import net.minecraft.init.Items;
 
 import java.util.HashSet;
@@ -26,17 +25,17 @@ public class ItemsInit {
         HUDItemGroup aboveHotbarGroup2 = new HorizontalHUDItemGroup((wid) -> wid / 2, (height) -> height - 76, CENTER, TOP);
         HUDItemGroup rightHotbarGroup = new HorizontalHUDItemGroup((wid) -> wid / 2 + 91 + 25, (height) -> height - 4, RIGHT, TOP);
 
-        centerGroup.items.add(new ItemCount(25, 25, Items.arrow));
-        centerGroup.items.add(new ItemCount(25, 25, Items.rabbit));
+        centerGroup.addItem(new ItemCount(25, 25, Items.arrow));
+        centerGroup.addItem(new ItemCount(25, 25, Items.rabbit));
 
-        rightHotbarGroup.items.add(new ItemCount(25, 25, Items.hopper_minecart));
-        rightHotbarGroup.items.add(new ItemCount(25, 25, Items.baked_potato));
+        rightHotbarGroup.addItem(new ItemCount(25, 25, Items.hopper_minecart));
+        rightHotbarGroup.addItem(new ItemCount(25, 25, Items.baked_potato));
 
-        aboveHotbarGroup1.items.add(new ItemCount(25, 25, Items.hopper_minecart));
-        aboveHotbarGroup1.items.add(new ItemCount(25, 25, Items.baked_potato));
+        aboveHotbarGroup1.addItem(new ItemCount(25, 25, Items.hopper_minecart));
+        aboveHotbarGroup1.addItem(new ItemCount(25, 25, Items.baked_potato));
 
-        aboveHotbarGroup2.items.add(new ItemCount(25, 25, Items.hopper_minecart));
-        aboveHotbarGroup2.items.add(new ItemCount(25, 25, Items.baked_potato));
+        aboveHotbarGroup2.addItem(new ItemCount(25, 25, Items.hopper_minecart));
+        aboveHotbarGroup2.addItem(new ItemCount(25, 25, Items.baked_potato));
 
 
     }

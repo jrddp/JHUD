@@ -12,8 +12,6 @@ import java.util.function.Supplier;
 
 public abstract class HUDItemGroup {
 
-    Minecraft mc = Minecraft.getMinecraft();
-
     public enum POS_H {
         LEFT, CENTER, RIGHT
     }
@@ -26,7 +24,7 @@ public abstract class HUDItemGroup {
     private final Function<Integer, Integer> xSupplier, ySupplier;
     public POS_H alignH;
     public POS_V alignV;
-    public final List<HUDItem> items = new ArrayList<>();
+    protected final List<HUDItem> items = new ArrayList<>();
 
     public HUDItemGroup(Function<Integer, Integer> xSupplier, Function<Integer, Integer> ySupplier, POS_H alignH, POS_V alignV) {
         this.xSupplier = xSupplier;
@@ -72,6 +70,14 @@ public abstract class HUDItemGroup {
         alignHorizontal();
         alignVertical();
         for (HUDItem item : items) item.render();
+    }
+
+    public void addItem(HUDItem item) {
+        item.changeGroup(this);
+    }
+
+    public void removeItem(HUDItem item) {
+        items.remove(item);
     }
 
 }
