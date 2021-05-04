@@ -8,6 +8,8 @@ import me.kokeria.jhud.items.ItemCount;
 import net.minecraft.init.Items;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.InputEvent;
+import org.lwjgl.input.Keyboard;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +53,19 @@ public class EventListener {
         rightHotbarGroup.alignAndRender();
         aboveHotbarGroup1.alignAndRender();
         aboveHotbarGroup2.alignAndRender();
+
+    }
+
+    @SubscribeEvent
+    public void onInputKeyInput(InputEvent.KeyInputEvent event) {
+        int key = Keyboard.getEventKey();
+
+        // on key down
+        if (Keyboard.getEventKeyState()) {
+            if (key == Settings.KEY_HUD.getKeyCode()) {
+                // TODO key pressed event
+            }
+        }
 
     }
 

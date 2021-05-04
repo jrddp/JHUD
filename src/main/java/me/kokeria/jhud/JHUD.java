@@ -17,7 +17,7 @@ public class JHUD {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-//        Settings.registerKeybinds();
+        Settings.registerKeybinds();
     }
 
     @EventHandler
