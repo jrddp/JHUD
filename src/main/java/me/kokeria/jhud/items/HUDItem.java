@@ -25,7 +25,7 @@ public abstract class HUDItem {
     public abstract void render();
 
     public boolean checkBoundingBox(int targX, int targY) {
-        return targX >= x && targX <= x + getWidth() && targY >= y && targY <= targY + getHeight();
+        return targX >= x && targX <= x + getWidth() && targY >= y && targY <= y + getHeight();
     }
 
     public void changeGroup(HUDItemGroup newGroup) {

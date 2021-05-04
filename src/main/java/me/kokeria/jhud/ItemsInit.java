@@ -9,8 +9,8 @@ import net.minecraft.init.Items;
 import java.util.HashSet;
 import java.util.Set;
 
-import static me.kokeria.jhud.items.HUDItemGroup.POS_H.CENTER;
-import static me.kokeria.jhud.items.HUDItemGroup.POS_H.RIGHT;
+import static me.kokeria.jhud.items.HUDItemGroup.POS_H.*;
+import static me.kokeria.jhud.items.HUDItemGroup.POS_V.BOTTOM;
 import static me.kokeria.jhud.items.HUDItemGroup.POS_V.TOP;
 
 public class ItemsInit {
@@ -23,7 +23,9 @@ public class ItemsInit {
         HUDItemGroup centerGroup = new HorizontalHUDItemGroup((wid) -> wid / 2, (height) -> height / 2, CENTER, HUDItemGroup.POS_V.CENTER);
         HUDItemGroup aboveHotbarGroup1 = new HorizontalHUDItemGroup((wid) -> wid / 2, (height) -> height - 76 - 18, CENTER, TOP);
         HUDItemGroup aboveHotbarGroup2 = new HorizontalHUDItemGroup((wid) -> wid / 2, (height) -> height - 76, CENTER, TOP);
+        HUDItemGroup leftHotbarGroup = new HorizontalHUDItemGroup((wid) -> wid / 2 - 91 - 25, (height) -> height - 4, LEFT, TOP);
         HUDItemGroup rightHotbarGroup = new HorizontalHUDItemGroup((wid) -> wid / 2 + 91 + 25, (height) -> height - 4, RIGHT, TOP);
+        HUDItemGroup topCenterGroup = new HorizontalHUDItemGroup((wid) -> wid / 2, (height) -> 22, CENTER, BOTTOM);
 
         centerGroup.addItem(new ItemCount(25, 25, Items.arrow));
         centerGroup.addItem(new ItemCount(25, 25, Items.rabbit));

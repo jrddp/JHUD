@@ -30,4 +30,8 @@ public class Renderer {
         Gui.drawRect(x, y, x + width, y + height, BOX_COLOR);
     }
 
+    public static void drawDotAroundCenter(int x, int y, int size, int color) {
+        Gui.drawRect(x - size / 2, y - size / 2, x + size / 2, y + size / 2, color);
+    }
+
 }

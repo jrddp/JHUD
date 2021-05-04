@@ -1,7 +1,6 @@
 package me.kokeria.jhud.items;
 
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 public class HorizontalHUDItemGroup extends HUDItemGroup {
 

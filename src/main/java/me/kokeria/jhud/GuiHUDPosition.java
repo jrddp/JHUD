@@ -2,9 +2,11 @@ package me.kokeria.jhud;
 
 import me.kokeria.jhud.items.HUDItem;
 import me.kokeria.jhud.items.HUDItemGroup;
+import me.kokeria.jhud.util.Renderer;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class GuiHUDPosition extends GuiScreen {
@@ -15,12 +17,15 @@ public class GuiHUDPosition extends GuiScreen {
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
 
+        for (HUDItemGroup group : ItemsInit.ITEM_GROUPS) {
+            Renderer.drawDotAroundCenter(group.getX(), group.getY(), 3, new Color(255, 0, 0).getRGB());
+        }
+
         if (selectedItem != null) {
             HUDItemGroup snapGroup = ItemsInit.ITEM_GROUPS.stream()
                     .filter(group -> group.getDistance(mouseX, mouseY) < snapRadius).findFirst().orElse(null);
 
             selectedItem.changeGroup(snapGroup);
-            System.out.println("Snapping " + partialTicks);
             selectedItem.x = mouseX;
             selectedItem.y = mouseY;
         }
