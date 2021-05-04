@@ -1,5 +1,7 @@
 package me.kokeria.jhud.items;
 
+import me.kokeria.jhud.ItemsInit;
+
 public abstract class HUDItem {
 
     int x, y;
@@ -7,6 +9,8 @@ public abstract class HUDItem {
     public HUDItem(int x, int y) {
         this.x = x;
         this.y = y;
+
+        ItemsInit.ALL_ITEMS.add(this);
     }
 
     public abstract int getWidth();

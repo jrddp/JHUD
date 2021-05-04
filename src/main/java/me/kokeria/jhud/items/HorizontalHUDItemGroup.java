@@ -1,25 +1,29 @@
 package me.kokeria.jhud.items;
 
+import java.util.function.Function;
+import java.util.function.Supplier;
+
 public class HorizontalHUDItemGroup extends HUDItemGroup {
 
 
-    public HorizontalHUDItemGroup(int x, int y, POS_H alignH, POS_V alignV) {
-        super(x, y, alignH, alignV);
+    public HorizontalHUDItemGroup(Function<Integer, Integer> xSupplier, Function<Integer, Integer> ySupplier, POS_H alignH, POS_V alignV) {
+        super(xSupplier, ySupplier, alignH, alignV);
     }
 
     @Override
     public void alignHorizontal() {
+        int groupX = getX();
         int curX;
 
         switch (alignH) {
             case LEFT:
-                curX = x - getWidth();
+                curX = groupX - getWidth();
                 break;
             case CENTER:
-                curX = x - getWidth() / 2;
+                curX = groupX - getWidth() / 2;
                 break;
             case RIGHT:
-                curX = x;
+                curX = groupX;
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + alignH);
@@ -34,6 +38,8 @@ public class HorizontalHUDItemGroup extends HUDItemGroup {
 
     @Override
     public void alignVertical() {
+
+        int y = getY();
 
         switch (alignV) {
             case TOP:
