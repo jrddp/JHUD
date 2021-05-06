@@ -54,7 +54,7 @@ public class ItemRenderer {
     public static void drawBoxOnItem(int itemX, int itemY, boolean cover) {
         GlStateManager.pushMatrix();
         if (!cover) GlStateManager.translate(0, 0, -300);
-        Renderer.drawBox(itemX, itemY, 16, 16);
+        Renderer.drawBackgroundBox(itemX, itemY, 16, 16);
         GlStateManager.popMatrix();
     }
 

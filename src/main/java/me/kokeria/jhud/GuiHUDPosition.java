@@ -12,18 +12,18 @@ import java.io.IOException;
 public class GuiHUDPosition extends GuiScreen {
 
     private HUDItem selectedItem = null;
-    private int snapRadius = 15;
+    private final int SNAP_RADIUS = 15;
 
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
 
         for (HUDItemGroup group : ItemsInit.ITEM_GROUPS) {
-            Renderer.drawDotAroundCenter(group.getX(), group.getY(), 3, new Color(255, 0, 0).getRGB());
+            Renderer.drawCenteredDot(group.getX(), group.getY(), 3, new Color(255, 0, 0).getRGB());
         }
 
         if (selectedItem != null) {
             HUDItemGroup snapGroup = ItemsInit.ITEM_GROUPS.stream()
-                    .filter(group -> group.getDistance(mouseX, mouseY) < snapRadius).findFirst().orElse(null);
+                    .filter(group -> group.getDistance(mouseX, mouseY) < SNAP_RADIUS).findFirst().orElse(null);
 
             selectedItem.changeGroup(snapGroup);
             selectedItem.x = mouseX;

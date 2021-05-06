@@ -1,9 +1,6 @@
 package me.kokeria.jhud;
 
-import me.kokeria.jhud.items.HUDItem;
-import me.kokeria.jhud.items.HUDItemGroup;
-import me.kokeria.jhud.items.HorizontalHUDItemGroup;
-import me.kokeria.jhud.items.ItemCount;
+import me.kokeria.jhud.items.*;
 import net.minecraft.init.Items;
 
 import java.util.HashSet;
@@ -39,6 +36,7 @@ public class ItemsInit {
         aboveHotbarGroup2.addItem(new ItemCount(25, 25, Items.hopper_minecart));
         aboveHotbarGroup2.addItem(new ItemCount(25, 25, Items.baked_potato));
 
+        topCenterGroup.addItem(new Compass(0, 0));
 
     }
 
