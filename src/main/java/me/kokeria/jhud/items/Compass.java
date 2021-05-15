@@ -38,6 +38,7 @@ public class Compass extends HUDItem {
         double edgeYaw = playerYaw - yawWidth / 2;
         double leftYaw = Math.ceil((edgeYaw) / yawSpacing) * yawSpacing;
 
+        // lines and letters
         for (double yaw = leftYaw; yaw < edgeYaw + yawWidth; yaw += yawSpacing) {
             int lineX = (int) (x + (yaw - edgeYaw) * innerWidth / yawWidth) + 6;
             String str = getAngleString((int) yaw);
