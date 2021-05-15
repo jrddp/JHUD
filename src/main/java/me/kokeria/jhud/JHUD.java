@@ -25,8 +25,7 @@ public class JHUD {
 
         MinecraftForge.EVENT_BUS.register(EventListener.INSTANCE);
 
-//        ClientCommandHandler.instance.registerCommand(new Command());
-
     }
+
 
 }

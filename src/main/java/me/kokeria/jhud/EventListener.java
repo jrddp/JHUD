@@ -1,5 +1,6 @@
 package me.kokeria.jhud;
 
+import me.kokeria.jhud.gui.GuiHUDPosition;
 import me.kokeria.jhud.items.HUDItem;
 import me.kokeria.jhud.items.HUDItemGroup;
 import net.minecraft.client.Minecraft;

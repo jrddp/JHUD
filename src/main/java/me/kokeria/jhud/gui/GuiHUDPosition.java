@@ -1,5 +1,6 @@
-package me.kokeria.jhud;
+package me.kokeria.jhud.gui;
 
+import me.kokeria.jhud.ItemsInit;
 import me.kokeria.jhud.items.HUDItem;
 import me.kokeria.jhud.items.HUDItemGroup;
 import me.kokeria.jhud.util.Renderer;
@@ -13,6 +14,8 @@ public class GuiHUDPosition extends GuiScreen {
 
     private HUDItem selectedItem = null;
     private final int SNAP_RADIUS = 15;
+
+    private AddMenu addMenu = new AddMenu(20, 20);
 
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
@@ -29,6 +32,9 @@ public class GuiHUDPosition extends GuiScreen {
             selectedItem.x = mouseX;
             selectedItem.y = mouseY;
         }
+
+        if (selectedItem == null) addMenu.draw(mouseX, mouseY);
+
         super.drawScreen(mouseX, mouseY, partialTicks);
 
     }

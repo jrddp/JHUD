@@ -11,7 +11,7 @@ public class Settings {
     public static boolean hudEnabled = true;
 
     public static void registerKeybinds() {
-        KEY_HUD = new KeyBinding("key.utility", Keyboard.KEY_F, "key.categories.uxbb");
+        KEY_HUD = new KeyBinding("key.edit_hud", Keyboard.KEY_F, "key.categories.jhud");
         ClientRegistry.registerKeyBinding(KEY_HUD);
     }
 
