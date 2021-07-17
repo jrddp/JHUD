@@ -11,6 +11,7 @@ public abstract class GuiMenu {
     }
 
     public abstract int getWidth();
+
     public abstract int getHeight();
 
     public abstract void draw(int mouseX, int mouseY);

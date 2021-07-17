@@ -15,22 +15,36 @@ public class Renderer {
         return Minecraft.getMinecraft().fontRendererObj;
     }
 
-    public static void drawHCenteredString(String str, float x, float y, int height) {
+    public static void drawHVCenteredString(String str, float x, float y) {
 
         FontRenderer fontRenderer = getFontRenderer();
-        int fontHeight = fontRenderer.FONT_HEIGHT;
         int textWidth = fontRenderer.getStringWidth(str);
+        int textHeight = getFontRenderer().FONT_HEIGHT;
+
+        fontRenderer.drawStringWithShadow(str, x - textWidth / 2f, y - textHeight / 2f, 0xFFFFFF);
+    }
+
+    public static void drawHCenteredString(String str, float x, float y) {
+
+        FontRenderer fontRenderer = getFontRenderer();
+        int textWidth = fontRenderer.getStringWidth(str);
+
+
+        fontRenderer.drawStringWithShadow(str, x - textWidth / 2f, y, 0xFFFFFF);
+    }
+
+    public static void drawHCenteredString(String str, float x, float y, int height) {
+        int fontHeight = getFontRenderer().FONT_HEIGHT;
         float scale = (float) height / fontHeight;
 
         x /= scale;
         y /= scale;
-
         GlStateManager.pushMatrix();
         GlStateManager.scale(scale, scale, scale);
-
-        fontRenderer.drawStringWithShadow(str, x - textWidth / 2f, y, 0xFFFFFF);
+        drawHCenteredString(str, x, y);
         GlStateManager.popMatrix();
     }
+
 
     public static void drawBackgroundBox(int x, int y, int width, int height) {
         Gui.drawRect(x, y, x + width, y + height, BOX_COLOR);
